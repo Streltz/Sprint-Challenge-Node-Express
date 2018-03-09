@@ -1,5 +1,18 @@
 # Sprint Challenge Node Express
 
+## Questions
+
+1. What is Node?
+
+2. What is Express?
+
+3. What is Middleware?
+
+4. What is an endpoint?
+
+
+## Answers
+
 1. Node is an open source, cross platform JavaScript run-time environment for executing JavaScript code server-side.
 
 2. Express is a node platform that allows JavaScript to be used outside the Web Browsers, for creating web and network applications. This allows us to create the server and server-side code for an application using JavaScript. 
