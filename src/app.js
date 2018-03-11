@@ -47,6 +47,29 @@ app.get('/yesterday', (req, res) => {
     });
 });
 
+app.get('/compare', (req, res) => {
+    fetch(API_CURRENT)
+    .then(res => res.json())
+    .then(json => {
+        currentPrice = json.bpi.USD.rate_float;
+    fetch(API_YESTERDAY)
+    .then(res => res.json())
+    .then(difference => {
+        difference = Object.values(difference.bpi)[0];
+        const result = Number(currentPrice - difference);
+        res.status(STATUS_SUCCESS);
+        if (result < 0) {
+            res.json({ lost: result });
+        } else { 
+            res.json ({ gained: result });
+        }
+    });
+})
+.catch(err => {
+    res.status(STATUS_ERROR);
+    res.send({ error: err });
+    });
+});
 
 app.listen(PORT, err => {
   if (err) {
